@@ -11,11 +11,13 @@ def execute(cmd):
     if not cmd:
         return
     # shlex split la string en syntaxe shell-like
-    output = subprocess.run(shlex.split(cmd), stderr=subprocess.STDOUT)
+    output = subprocess.run(shlex.split(cmd), capture_output=True)
     return output
 
 
 
 if __name__=='__main__':
-    response = execute('ls')
-    print(response.stdout)
+    parser = argparse.ArgumentParser(
+        description='BHP Net Tool',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
