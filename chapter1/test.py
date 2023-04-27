@@ -1,1 +1,1 @@
-print(len(repr(chr(85))))
+print(f"0x{ord('a'):04x}")
